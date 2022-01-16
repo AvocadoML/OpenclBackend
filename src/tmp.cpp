@@ -5,7 +5,7 @@
  *      Author: Maciej Kozarzewski
  */
 
-#include <avocado/opencl_backend.h>
+#include <OpenCLBackend/opencl_backend.h>
 
 namespace avocado
 {

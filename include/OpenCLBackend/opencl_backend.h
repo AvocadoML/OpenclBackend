@@ -5,10 +5,10 @@
  *      Author: Maciej Kozarzewski
  */
 
-#ifndef AVOCADO_OPENCL_BACKEND_H_
-#define AVOCADO_OPENCL_BACKEND_H_
+#ifndef OPENCLBACKEND_OPENCL_BACKEND_H_
+#define OPENCLBACKEND_OPENCL_BACKEND_H_
 
-#include <avocado/backend/backend_defs.h>
+#include <backend_defs.h>
 
 namespace avocado
 {
@@ -978,4 +978,4 @@ namespace avocado
 	} /* namespace backend */
 } /* namespace avocado */
 
-#endif /* AVOCADO_OPENCL_BACKEND_H_ */
+#endif /* OPENCLBACKEND_OPENCL_BACKEND_H_ */
