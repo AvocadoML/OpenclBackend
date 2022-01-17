@@ -7,7 +7,7 @@ set(CMAKE_DEBUG_POSTFIX "d" CACHE STRING "Choose debug postfix" FORCE)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose build type" FORCE)
 set(PATH_TO_MAIN_LIB "${PROJECT_SOURCE_DIR}/../Avocado" CACHE STRING "Path to the main Avocado project")
 
-set(libsrc 	src/tmp.cpp)
+set(libsrc 	src/tmp.cpp ${PATH_TO_MAIN_LIB}/include/Avocado/backend/backend_descriptors.cpp)
 
 if(BUILD_SHARED_LIBS)
   set(LIBRARY_NAME "AvocadoOpenCLBackend")
