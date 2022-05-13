@@ -5,7 +5,7 @@
  *      Author: Maciej Kozarzewski
  */
 
-#include <OpenCLBackend/opencl_backend.h>
+#include <Avocado/opencl_backend.h>
 
 namespace avocado
 {
@@ -39,11 +39,11 @@ namespace avocado
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
-		avStatus_t openclCreateMemoryDescriptor(avMemoryDescriptor_t *result, avDeviceIndex_t deviceIndex, avSize_t sizeInBytes)
+		avStatus_t openclCreateMemoryDescriptor(avMemoryDescriptor_t *result, avDeviceIndex_t deviceIndex, av_int64 sizeInBytes)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
-		avStatus_t openclCreateMemoryView(avMemoryDescriptor_t *result, const avMemoryDescriptor_t desc, avSize_t sizeInBytes, avSize_t offsetInBytes)
+		avStatus_t openclCreateMemoryView(avMemoryDescriptor_t *result, const avMemoryDescriptor_t desc, av_int64 sizeInBytes, av_int64 offsetInBytes)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
@@ -51,23 +51,23 @@ namespace avocado
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
-		avStatus_t openclSetMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, avSize_t dstOffset, avSize_t dstSize, const void *pattern,
-				avSize_t patternSize)
+		avStatus_t openclSetMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, av_int64 dstOffset, av_int64 dstSize, const void *pattern,
+				av_int64 patternSize)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
-		avStatus_t openclCopyMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, avSize_t dstOffset, const avMemoryDescriptor_t src,
-				avSize_t srcOffset, avSize_t count)
+		avStatus_t openclCopyMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, av_int64 dstOffset, const avMemoryDescriptor_t src,
+				av_int64 srcOffset, av_int64 count)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
-		avStatus_t openclCopyMemoryToHost(avContextDescriptor_t context, void *dst, const avMemoryDescriptor_t src, avSize_t srcOffset,
-				avSize_t bytes)
+		avStatus_t openclCopyMemoryToHost(avContextDescriptor_t context, void *dst, const avMemoryDescriptor_t src, av_int64 srcOffset,
+				av_int64 bytes)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
-		avStatus_t openclCopyMemoryFromHost(avContextDescriptor_t context, avMemoryDescriptor_t dst, avSize_t dstOffset, const void *src,
-				avSize_t bytes)
+		avStatus_t openclCopyMemoryFromHost(avContextDescriptor_t context, avMemoryDescriptor_t dst, av_int64 dstOffset, const void *src,
+				av_int64 bytes)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
@@ -140,7 +140,7 @@ namespace avocado
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
 		avStatus_t openclChangeType(avContextDescriptor_t context, avMemoryDescriptor_t dst, avDataType_t dstType, const avMemoryDescriptor_t src,
-				avDataType_t srcType, avSize_t elements)
+				avDataType_t srcType, av_int64 elements)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
@@ -284,7 +284,7 @@ namespace avocado
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
 		avStatus_t openclGetConvolutionWorkspaceSize(avContextDescriptor_t context, const avConvolutionDescriptor_t config,
-				const avTensorDescriptor_t xDesc, const avTensorDescriptor_t wDesc, const avTensorDescriptor_t bDesc, avSize_t *result)
+				const avTensorDescriptor_t xDesc, const avTensorDescriptor_t wDesc, const avTensorDescriptor_t bDesc, av_int64 *result)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
@@ -339,7 +339,7 @@ namespace avocado
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}
 
-		avStatus_t openclGetOptimizerWorkspaceSize(avOptimizerDescriptor_t desc, const avTensorDescriptor_t wDesc, avSize_t *result)
+		avStatus_t openclGetOptimizerWorkspaceSize(avOptimizerDescriptor_t desc, const avTensorDescriptor_t wDesc, av_int64 *result)
 		{
 			return AVOCADO_STATUS_NOT_SUPPORTED;
 		}

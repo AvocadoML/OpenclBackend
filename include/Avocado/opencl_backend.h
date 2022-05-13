@@ -5,10 +5,10 @@
  *      Author: Maciej Kozarzewski
  */
 
-#ifndef OPENCLBACKEND_OPENCL_BACKEND_H_
-#define OPENCLBACKEND_OPENCL_BACKEND_H_
+#ifndef AVOCADO_OPENCL_BACKEND_H_
+#define AVOCADO_OPENCL_BACKEND_H_
 
-#include "backend_defs.h"
+#include <Avocado/backend_defs.h>
 
 namespace avocado
 {
@@ -131,7 +131,7 @@ namespace avocado
 		 * \retval AVOCADO_STATUS_BAD_PARAM The passed pointer is null.
 		 * \retval AVOCADO_STATUS_BAD_ALLOC The allocation failed.
 		 */
-		DLL_PUBLIC avStatus_t openclCreateMemoryDescriptor(avMemoryDescriptor_t *result, avDeviceIndex_t deviceIndex, avSize_t sizeInBytes);
+		DLL_PUBLIC avStatus_t openclCreateMemoryDescriptor(avMemoryDescriptor_t *result, avDeviceIndex_t deviceIndex, av_int64 sizeInBytes);
 
 		/**
 		 * \brief Creates non-owning view of another memory block.
@@ -144,8 +144,8 @@ namespace avocado
 		 * \retval AVOCADO_STATUS_SUCCESS The memory view was successfully created.
 		 * \retval AVOCADO_STATUS_BAD_PARAM The descriptor is invalid or not owning or offset is negative.
 		 */
-		DLL_PUBLIC avStatus_t openclCreateMemoryView(avMemoryDescriptor_t *result, const avMemoryDescriptor_t desc, avSize_t sizeInBytes,
-				avSize_t offsetInBytes);
+		DLL_PUBLIC avStatus_t openclCreateMemoryView(avMemoryDescriptor_t *result, const avMemoryDescriptor_t desc, av_int64 sizeInBytes,
+				av_int64 offsetInBytes);
 
 		/**
 		 * \brief Frees memory and destroys the memory descriptor.
@@ -169,8 +169,8 @@ namespace avocado
 		 * \retval AVOCADO_STATUS_SUCCESS The memory was successfully set.
 		 * \retval AVOCADO_STATUS_BAD_PARAM The dstSize is not a multiple of patternSize.
 		 */
-		DLL_PUBLIC avStatus_t openclSetMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, avSize_t dstOffset, avSize_t dstSize,
-				const void *pattern, avSize_t patternSize);
+		DLL_PUBLIC avStatus_t openclSetMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, av_int64 dstOffset, av_int64 dstSize,
+				const void *pattern, av_int64 patternSize);
 
 		/**
 		 * \brief Copies block of memory.
@@ -183,20 +183,20 @@ namespace avocado
 		 * \retval AVOCADO_STATUS_SUCCESS The memory was successfully copied.
 		 * \retval AVOCADO_STATUS_BAD_PARAM Either dst descriptor or src descriptor is invalid.
 		 */
-		DLL_PUBLIC avStatus_t openclCopyMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, avSize_t dstOffset,
-				const avMemoryDescriptor_t src, avSize_t srcOffset, avSize_t count);
+		DLL_PUBLIC avStatus_t openclCopyMemory(avContextDescriptor_t context, avMemoryDescriptor_t dst, av_int64 dstOffset,
+				const avMemoryDescriptor_t src, av_int64 srcOffset, av_int64 count);
 
 		/**
 		 * \brief This method copies memory from OpenCL device to host.
 		 */
-		DLL_PUBLIC avStatus_t openclCopyMemoryToHost(avContextDescriptor_t context, void *dst, const avMemoryDescriptor_t src, avSize_t srcOffset,
-				avSize_t bytes);
+		DLL_PUBLIC avStatus_t openclCopyMemoryToHost(avContextDescriptor_t context, void *dst, const avMemoryDescriptor_t src, av_int64 srcOffset,
+				av_int64 bytes);
 
 		/**
 		 * \brief This method copies memory from host to OpenCL device.
 		 */
-		DLL_PUBLIC avStatus_t openclCopyMemoryFromHost(avContextDescriptor_t context, avMemoryDescriptor_t dst, avSize_t dstOffset, const void *src,
-				avSize_t bytes);
+		DLL_PUBLIC avStatus_t openclCopyMemoryFromHost(avContextDescriptor_t context, avMemoryDescriptor_t dst, av_int64 dstOffset, const void *src,
+				av_int64 bytes);
 
 		/**
 		 * \brief Returns number of available OpenCL devices.
@@ -360,7 +360,7 @@ namespace avocado
 		 *
 		 */
 		DLL_PUBLIC avStatus_t openclChangeType(avContextDescriptor_t context, avMemoryDescriptor_t dst, avDataType_t dstType,
-				const avMemoryDescriptor_t src, avDataType_t srcType, avSize_t elements);
+				const avMemoryDescriptor_t src, avDataType_t srcType, av_int64 elements);
 
 		/**
 		 * \param[in] context Context in which the operation is performed.
@@ -796,7 +796,7 @@ namespace avocado
 		 * \param[out] result Pointer to the integer with number of bytes required for the workspace.
 		 */
 		DLL_PUBLIC avStatus_t openclGetConvolutionWorkspaceSize(avContextDescriptor_t context, const avConvolutionDescriptor_t config,
-				const avTensorDescriptor_t xDesc, const avTensorDescriptor_t wDesc, const avTensorDescriptor_t bDesc, avSize_t *result);
+				const avTensorDescriptor_t xDesc, const avTensorDescriptor_t wDesc, const avTensorDescriptor_t bDesc, av_int64 *result);
 
 		/**
 		 * \brief Precomputes some data for future use in refConvolutionBiasActivationForward method.
@@ -950,7 +950,7 @@ namespace avocado
 		 * \param[in] wDesc
 		 * \param[out] result
 		 */
-		DLL_PUBLIC avStatus_t openclGetOptimizerWorkspaceSize(avOptimizerDescriptor_t desc, const avTensorDescriptor_t wDesc, avSize_t *result);
+		DLL_PUBLIC avStatus_t openclGetOptimizerWorkspaceSize(avOptimizerDescriptor_t desc, const avTensorDescriptor_t wDesc, av_int64 *result);
 
 		/**
 		 * \param[in] context Context in which the operation is performed.
@@ -978,4 +978,4 @@ namespace avocado
 	} /* namespace backend */
 } /* namespace avocado */
 
-#endif /* OPENCLBACKEND_OPENCL_BACKEND_H_ */
+#endif /* AVOCADO_OPENCL_BACKEND_H_ */
